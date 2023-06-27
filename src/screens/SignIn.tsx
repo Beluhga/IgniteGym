@@ -6,13 +6,27 @@ import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { AuthNavigatorRoutesProps } from "@routes/auth.routes";
+import { useForm } from "react-hook-form";
+import { useAuth } from "@hooks/useAuth";
+
+type FormData = {
+    email: string;
+    password: string;
+}
 
 export function SignIn(){
+    const { signIn } = useAuth()
 
     const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
-    function handleNewAccount(){
-        navigation.navigate('signUp')
+    const { control, handleSubmit, formState: { errors} } = useForm<FormData>();
+
+    async function handleNewAccount(){
+        await navigation.navigate('signUp')
+    }
+
+    function AbrirSignIn({email, password}: FormData){
+        signIn(email, password);
     }
 
     return (
@@ -46,7 +60,7 @@ export function SignIn(){
                  placeholder="Senha" 
                  secureTextEntry
                  />
-                 <Button title="Acessar" />
+                 <Button title="Acessar" onPress={handleSubmit(AbrirSignIn)} />
             </Center>
 
             <Center mt={23}>
