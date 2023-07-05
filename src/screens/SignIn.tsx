@@ -31,6 +31,7 @@ export function SignIn(){
         try {
             setIsLoading(true);
             await signIn(email, password);
+
         } catch(error){
             const isAppError = error instanceof AppError;
             const title = isAppError ? error.message : "Não foi possível entrat. Tenta novamente mais tarde"
