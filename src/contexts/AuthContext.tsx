@@ -1,6 +1,6 @@
 import { UserDTO } from "@dtos/UserDTO";
 import { api } from "@services/api";
-import { storageAuthTokenGet, storageAuthTokenRemove, storageAuthTokenSave } from "@storage/storageAuthToken";
+import { storageAuthTokenGet, storageAuthTokenSave, storageAuthTokenRemove } from "@storage/storageAuthToken";
 import { storageUserGet, storageUserRemove, storageUserSave } from "@storage/storageUser";
 import { ReactNode, createContext, useEffect, useState } from "react";
 
@@ -62,6 +62,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps){
     async function signOut() {
     try {
         setIsLoadingUserStorageData(true)
+        
         setUser({} as UserDTO) // mostra quando o usuario nao esta logado
         await storageUserRemove();
         await storageAuthTokenRemove();
