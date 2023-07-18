@@ -13,7 +13,7 @@ import { Platform } from "react-native";
 
 type AppRoutes = {
     home: undefined;
-    exercicio: undefined;
+    exercicio: {exerciseId: string};
     profile: undefined;
     history: undefined;
 }
