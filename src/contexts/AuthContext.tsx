@@ -6,6 +6,7 @@ import { ReactNode, createContext, useEffect, useState } from "react";
 
 export type AuthContextDataProps = {
     user: UserDTO;
+    atualizarProfileUsuario: (userUpdate: UserDTO) => Promise<void>;
     signIn: (email: string, password: string) => Promise<void>;
     signOut: () => Promise<void>;
     isLoadingUserStorageData: boolean;
@@ -74,6 +75,17 @@ export function AuthContextProvider({ children }: AuthContextProviderProps){
     }
 }
 
+    async function atualizarProfileUsuario(userUpdated: UserDTO) {
+        try {
+            setUser(userUpdated); // atualiza o nome do usuario no estado
+            await storageUserSave(userUpdated); //para quando o usuario voltar, a conta esta atualizada
+
+        } catch (error){
+            throw error;
+
+        }
+    }
+
     async function loadUserData() {
     try{
     setIsLoadingUserStorageData(true)
@@ -103,7 +115,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps){
             user, 
             signIn,
             signOut,
-            isLoadingUserStorageData
+            isLoadingUserStorageData,
+            atualizarProfileUsuario
              }}>
             {children}
           </AuthContext.Provider>
