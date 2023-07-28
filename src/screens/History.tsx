@@ -1,4 +1,5 @@
 import { HistoryCard } from "@components/HistoryCard";
+import { Loading } from "@components/Loading";
 import { ScreenHeader } from "@components/ScreenHeader";
 import { HistoryByDayDTO } from "@dtos/HistoryByDay";
 import { useFocusEffect } from "@react-navigation/native";
@@ -44,6 +45,9 @@ useFocusEffect(useCallback(() => { // usando quando a tela estiver no focu
         <VStack flex={1}>
                 <ScreenHeader title="Historico de Exercícios" />
 
+
+                {
+                    isLoading ? <Loading /> :
                 <SectionList 
                     sections={exercicios}
                     keyExtractor={item => item.id}
@@ -64,6 +68,7 @@ useFocusEffect(useCallback(() => { // usando quando a tela estiver no focu
                         </Text>
                     )}
                 />
+                }
         </VStack>
     )
 }
