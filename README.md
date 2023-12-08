@@ -67,7 +67,8 @@ Yup guarantees data integrity, providing a reliable experience.
 
 ![az_recorder_20231208_015939](https://github.com/Beluhga/IgniteGym/assets/82901722/4aec64fb-2219-4348-9b70-c28d1c45d787) 
 ![az_recorder_20231208_020112](https://github.com/Beluhga/IgniteGym/assets/82901722/9581a77a-01bc-4b23-afc6-679717f43632)
-![az_recorder_20231208_015939](https://github.com/Beluhga/IgniteGym/assets/82901722/ee5b86aa-49d9-444b-92f5-c56ad2f31fcf)
+![az_recorder_20231208_020132](https://github.com/Beluhga/IgniteGym/assets/82901722/ab57d5ab-01e4-48f4-b9f1-5a906198f77e)
+
 
 # Tecnologias utilizadas
 ## Mobile
